@@ -6,9 +6,9 @@ license = "MIT OR Apache-2.0"
 
 [dependencies]
 # Change stm32f429zi to your chip name, if necessary.
-embassy-stm32 = { version = "0.2.0", path = "../../embassy-stm32", features = ["stm32f411re", "unstable-pac", "memory-x", "time-driver-tim4", "exti", "chrono"] }
+embassy-stm32 = { version = "0.2.0", path = "../../embassy-stm32", features = ["stm32f401re", "unstable-pac", "memory-x", "time-driver-tim4", "exti", "chrono"] }
 embassy-sync = { version = "0.6.2", path = "../../embassy-sync" }
-embassy-executor = { version = "0.7.0", path = "../../embassy-executor", features = ["task-arena-size-32768", "arch-cortex-m", "executor-thread", "executor-interrupt", "trace"] }
+embassy-executor = { version = "0.7.0", path = "../../embassy-executor", features = ["task-arena-size-32768", "arch-cortex-m", "executor-thread", "executor-interrupt", "trace", "rtos-trace"] }
 embassy-time = { version = "0.4.0", path = "../../embassy-time", features = ["tick-hz-32_768"] }
 embassy-usb = { version = "0.4.0", path = "../../embassy-usb" }
 embassy-net = { version = "0.7.0", path = "../../embassy-net", features = ["tcp", "dhcpv4", "medium-ethernet"] }
@@ -32,7 +32,8 @@ usbd-hid = "0.8.1"
 static_cell = "2"
 chrono = { version = "^0.4", default-features = false}
 log = "0.4.26"
-systemview-target = { version = "0.1.2", features = ["cortex-m", "log"] }
+systemview-target = { version = "0.1.2", features = ["callbacks-app", "callbacks-os", "cortex-m", "log"] }
+rtos-trace = "0.1.3"
 
 [profile.release]
 debug = 2
