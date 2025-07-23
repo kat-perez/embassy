@@ -182,7 +182,8 @@ For example: `#[embassy_executor::main(entry = ..., executor = \"some_crate::Exe
                 let executor = unsafe { __make_static(&mut executor) };
                 executor.run(|spawner| {
                     use embassy_executor::SpawnerTraceExt;
-                    spawner.must_spawn_named("main\0", __embassy_main(spawner));
+                    //spawner.must_spawn_named("main\0", __embassy_main(spawner));
+                    spawner.spawn_named_with_trace("main\0", __embassy_main(spawner));
                 })
             },
         ),
@@ -193,7 +194,8 @@ For example: `#[embassy_executor::main(entry = ..., executor = \"some_crate::Exe
 
                 executor.start(|spawner| {
                     use embassy_executor::SpawnerTraceExt;
-                    spawner.must_spawn_named("main\0", __embassy_main(spawner));
+                    //spawner.must_spawn_named("main\0", __embassy_main(spawner));
+                    spawner.spawn_named_with_trace("main\0", __embassy_main(spawner));
                 });
 
                 Ok(())
